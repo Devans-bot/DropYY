@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-primary: rgb(var(--primary));
+  --color-secondary: rgb(var(--secondary));
+  --color-accent: rgb(var(--accent));
+}
+
+
+:root {
+  --primary: 255 255 255;      /* white */
+  --secondary: 0 0 0;          /* black */
+  --accent: 0 0 0;             /* black */
+}
+
+
+[data-theme="dark"] {
+  --primary: 0 0 0;            /* black */
+  --secondary: 255 255 255;    /* white */
+  --accent: 3 7 18;            /* gray-950 */
+}
+
+
+[data-theme="coffee"] {
+  --primary: 120 72 48;        /* coffee brown */
+  --secondary: 245 236 230;    /* creamy beige */
+  --accent: 217 119 6;         /* caramel */
+}
+
+
+.jersey-15 {
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.jetbrains-mono{
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fugaz-one{
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrains Mono", monospace;
+}
+
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUpSmooth {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+button, a {
+  touch-action: manipulation;
+}
+
+
+
+@keyframes pressPop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pressPop {
+  animation: pressPop 0.25s ease;
+}
+
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  width: 100%;
+  animation: progressFill 5s linear forwards;
+}
