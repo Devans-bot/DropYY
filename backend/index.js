@@ -22,6 +22,15 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
 
 app.use('/api/user',userroutes)
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve();
+
+  app.use(express.static(path.join(__dirname, "client/dist")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
+  );
+}
 
 app.listen(PORT,async()=>{
     console.log(`✅Server running on ${PORT}`)
