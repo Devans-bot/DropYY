@@ -31,8 +31,13 @@ app.use(express.static(path.join(__dirname, "../frontend/dist")));
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 }
+app.listen(PORT, async () => {
+  console.log(`✅ Server running on ${PORT}`);
 
-app.listen(PORT,async()=>{
-    console.log(`✅Server running on ${PORT}`)
-    await connectDb()
-})
+  try {
+    await connectDb();
+    console.log("✅ Database connected");
+  } catch (error) {
+    console.error("❌ Database connection failed:", error);
+  }
+});
