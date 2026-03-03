@@ -1,10 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Navbar from "../Components/navbar";
 import TakeSnap from "../Components/Takesnap";
-import EmojiWallpaper from "../Components/emojiwallpaper";
-import DeviceFrame from "../Components/devicelayout";
-import ProfileLogo from "../Components/profilelogo";
-import SunDarkLightToggle from "../Components/darklighttoggle";
 import DropYY from "../Components/logonav";
 
 const Home = () => {
