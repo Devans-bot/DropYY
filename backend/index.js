@@ -4,6 +4,7 @@ import connectDb from "./Src/database.js"
 import userroutes from "./Src/routes/routes.js"
 import cookieParser from "cookie-parser";
 import cors from 'cors'
+import path from "path";
 
 
 const PORT=process.env.PORT  || 5002
