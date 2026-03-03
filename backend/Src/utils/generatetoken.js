@@ -5,11 +5,11 @@ const genereateToken=(id,res)=>{
         expiresIn:"7d"
     })
 
-    res.cookie("token",token,{
-        httpOnly:true,
-        sameSite:"lax",
-        secure:false
-    })
+    res.cookie("token", token, {
+  httpOnly: true,
+  sameSite: "lax",   // OR "none" with secure
+  secure: false,    // true only if HTTPS
+});
 }
 
 export default genereateToken
