@@ -25,25 +25,19 @@ const SendDrops = () => {
 
     const handleSubmit=async()=>{
         
-        setloading(true)
-        navigate("/Snaps")
+       setloading(true)
 
-        let dropid=null
-        if(photo){
-         dropid= await sendDrop(photo)
-        }else{
-          console.log(video)
-          dropid=await sendDrop(video)
-        }
+let dropid=null
+if(photo){
+  dropid= await sendDrop(photo)
+}else{
+  dropid= await sendDrop(video)
+}
 
-        if(!dropid){
-            toast.error("No dropid")
-        }
+await sendDropToFriends(selectedIds,dropid)
 
-        
-
-        await sendDropToFriends(selectedIds,dropid)
-        setloading(false)
+navigate("/Snaps")
+setloading(false)
         
     }
 

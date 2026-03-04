@@ -16,7 +16,7 @@ const Snappage = () => {
 
   useEffect(()=>{
     getMyDrops()
-  },[myDrops])
+  },[])
 
 
    return (
