@@ -26,13 +26,13 @@ function App() {
     if(theme){
       document.documentElement.setAttribute("data-theme",theme)
     }
-  })
+  },[theme])
 
   useEffect(()=>{
     checkAuth()
-  },[checkAuth])
+  },[])
 
-  if(ischeckingauth && !authUser){
+  if(ischeckingauth){
     return(
       <div className="flex items-center justify-center h-screen">
         <SingleGhostLoader/>
