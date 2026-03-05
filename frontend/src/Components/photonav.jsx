@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BiSolidSend } from "react-icons/bi";
 import { MdSaveAlt } from "react-icons/md";
 import { TiArrowRepeat } from "react-icons/ti";
@@ -22,19 +22,21 @@ function dataURLtoFile(dataurl, filename) {
 }
 
 
-const PhotoSendNavBar = ({VideoData,PhotoData}) => {
+const PhotoSendNavBar = ({PhotoData}) => {
 
+ 
 
-   const {sendDrop,setPhoto}=UseAuthStore()
+   const {sendDrop,setPhoto,setvideo}=UseAuthStore()
    const navigate=useNavigate()
+ 
 
    const handleSendDrop=()=>{
     if(PhotoData){
-     const file=dataURLtoFile(PhotoData,"drop.png")
-     setPhoto(file)
+    const file=dataURLtoFile(PhotoData,"drop.png")
+    setPhoto(file)
     navigate("/SendDropsToFriends")
+    
     }
-
     navigate("/SendDropsToFriends")
     
    }

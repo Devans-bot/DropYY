@@ -46,11 +46,14 @@ export const UseAuthStore=create((set,get)=>({
     login:async(data)=>{
         try {
             const res= await axiosinstance.post("/user/login",data)
-            set({authUser:res.data.user})
+           set({
+  authUser: res.data.user,
+  friendsArray: res.data.user.friends
+})
             set({ischeckingauth:false})
             toast.success("Logged in")
         } catch (error) {
-            console.log("cant login")
+            console.log(error)
         }
     },
     logOut:async()=>{

@@ -1,7 +1,10 @@
+import axios from "axios";
 import React from "react";
-import axios from 'axios'
 
-export const axiosinstance=axios.create({
-    baseURL:"/api",
-    withCredentials:true
-})  
+export const axiosinstance = axios.create({
+  baseURL:
+    import.meta.env.MODE === "development"
+      ? "http://localhost:5002/api"
+      : "/api",
+  withCredentials: true,
+});

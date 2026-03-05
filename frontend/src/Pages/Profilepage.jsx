@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RandomBackground from '../Components/randomimages'
 import testimage from "../assets/Gemini_Generated_Image_e8qxqbe8qxqbe8qx.png"
 import { UseAuthStore } from '../Store/authStore'
@@ -12,10 +12,13 @@ import SingleGhostLoader from '../Components/GhostLoader'
 
 const Profilepage = () => {
 
-    const {authUser,logOut,uploadDP,uploading,uploadCoverphoto}=UseAuthStore()
+    const {authUser,logOut,uploadDP,uploading,uploadCoverphoto,checkAuth}=UseAuthStore()
     console.log(authUser.fullname)
     const [seletedImage,setselectedImage]=useState(null)
 
+    useEffect(()=>{
+      checkAuth()
+    },[])
 
     const handleDpUpload=(e)=>{
       try {

@@ -53,6 +53,7 @@ html,
 body,
 #root {
   height: 100%;
+
   width: 100%;
   margin: 0;
   padding: 0;
@@ -113,4 +114,19 @@ button, a {
 .animate-progress {
   width: 100%;
   animation: progressFill 5s linear forwards;
+}
+
+
+extend: {
+  animation: {
+    fadeInOut: "fadeInOut 3s ease forwards"
+  },
+  keyframes: {
+    fadeInOut: {
+      "0%": { opacity: 0 },
+      "20%": { opacity: 1 },
+      "80%": { opacity: 1 },
+      "100%": { opacity: 0 }
+    }
+  }
 }

@@ -15,6 +15,21 @@ const TakeSnap = () => {
   const {photo,setPhoto}=UseAuthStore()
   const navigate=useNavigate()
   const {video,setvideo}=UseAuthStore()
+  const [showHint, setShowHint] = useState(true);
+  const [facingMode, setFacingMode] = useState("user");
+
+  useEffect(() => {
+  setPhoto(null)
+  setvideo(null)
+}, [])
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowHint(false);
+  }, 3000);
+
+  return () => clearTimeout(timer);
+}, []);
 
   const {
     startRecording,
@@ -60,6 +75,11 @@ const TakeSnap = () => {
 }, [mediaBlobUrl]);
 
 
+const switchCamera = () => {
+  setFacingMode(prev =>
+    prev === "user" ? "environment" : "user"
+  );
+};
 
   const capturePhoto = () => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -81,9 +101,18 @@ const TakeSnap = () => {
               ref={webcamRef}
               audio={false}
               screenshotFormat="image/png"
-              videoConstraints={{ facingMode: "user" }}
+              videoConstraints={{ facingMode}}
               className="w-full  absolute z-10 rounded-3xl h-full object-cover border-3 border-green-300 scale-x-[-1]"
             />   
+            {showHint && (
+               <div className="absolute w-7/10 h-20 z-30  left-1/2 -translate-x-1/2 bottom-5
+              bg-primary/60 text-secondary px-4 py-2 rounded-full text-md font-bold flex flex-col items-center justify-center
+              animate-fadeInOut">
+             <h3> Tap to capture 📸 </h3>
+             <h3> Double tap to record 🔴</h3>
+                </div>
+             )}
+
             <div className="h-full rounded-3xl bg-black w-full z-0 absolute text-xl flex justify-center items-center font-bold text-white"  >
             <h1 >Opening 📸</h1>
             </div>
@@ -107,6 +136,15 @@ const TakeSnap = () => {
         className="flex z-50  w-9 h-9 bg-primary/30 border-2 border-secondary/60 rounded-full items-center justify-center absolute top-1/8 md:top-5 right-8">
           <MdPerson size={25} />
         </div>
+        <div
+  onClick={switchCamera}
+  className="absolute top-1/8 left-8 md:top-5 z-50 
+  w-9 h-9 flex items-center justify-center 
+  bg-primary/30 border-2 border-secondary/60 
+  rounded-full text-white"
+>
+  🔄
+</div>
 
         {/* Photo Preview */}
         {photo && !mediaBlobUrl && (

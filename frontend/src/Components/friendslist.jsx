@@ -46,7 +46,7 @@ useEffect(() => {
     }
   return (
     <>
-    <div className=' relative z-50 mt-5 mb-5 w-9/10 rounded-3xl  md:w7/10 
+    <div className='text-secondary/90 relative z-50 mt-5 mb-5 w-9/10 rounded-3xl  md:w7/10 
      flex flex-col items-center'>
 
         <form
@@ -68,7 +68,9 @@ useEffect(() => {
        {
         searchedUsers?.length>0 && open &&
         (
-          <div className='absolute top-10/10 z-30 bg-primary w-full
+          <div 
+        ref={boxref}
+          className='absolute top-10/10 z-30 bg-primary w-full
           flex flex-col items-center
              border-2 rounded-4xl border-secondary/10'>
              {searchedUsers?.map((user)=>(
@@ -88,7 +90,6 @@ useEffect(() => {
               
               {isFriend(user._id) ? (
                  <div
-                 ref={boxref}
               onClick={()=>handleclick(user._id)}
                className={`w-6 h-6 rounded-full text-primary  flex items-center justify-center bg-red-400`}>
                 <ImCross size={10}/>

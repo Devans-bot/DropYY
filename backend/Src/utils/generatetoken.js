@@ -5,12 +5,11 @@ const generateToken = (id, res) => {
     expiresIn: "7d",
   });
 
-  res.cookie("token", token, {
-    httpOnly: true,
-    secure: true,          // REQUIRED for Safari + HTTPS
-    sameSite: "none",      // REQUIRED for cross-site cookies
-    path: "/",
-  });
+ res.cookie("token", token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax"
+});
 };
 
 export default generateToken;

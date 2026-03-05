@@ -23,11 +23,7 @@ export default function SingleGhostLoader() {
 
   return (
     <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+     className="flex items-center justify-center h-screen w-screen bg-primary"
     >
       <span
         style={{

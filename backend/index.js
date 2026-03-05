@@ -13,9 +13,11 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin:"https://dropyy.onrender.com",
-    credentials:true
-}))
+  origin: process.env.NODE_ENV === "production"
+    ? "https://dropyy.onrender.com"
+    : "http://localhost:5173",
+  credentials: true
+}));
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));

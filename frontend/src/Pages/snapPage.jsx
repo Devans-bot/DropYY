@@ -10,13 +10,20 @@ import SearchedFriends from '../Components/friendslist'
 
 const Snappage = () => {
 
-  const {loading,setloading,authUser,myDrops,getMyDrops}=UseAuthStore()
+  const {loading,setloading,authUser,myDrops,getMyDrops,friendsArray,allFriends,addFriend}=UseAuthStore()
 
   const [activeDrops,setActiveDrops]=useState(null)
 
+   useEffect(()=>{
+    allFriends()
+  },[addFriend])
+  
   useEffect(()=>{
     getMyDrops()
   },[])
+
+ 
+
 
 
    return (
@@ -28,7 +35,7 @@ const Snappage = () => {
      md:w-9/12 md:border-2 border-secondary/30 md:rounded-4xl
      h-full md:h-8/10 py-14 z-10 px-3 flex flex-col items-center justify-start'>
       <SearchedFriends/>
-       <div className='w-full h-full '>
+       <div className='w-full h-full  '>
         
            
         {loading &&  <div className='md:hidden text-secondary absolute top-12 md:top-1 left-1/2 -translate-x-1/2 flex items-center justify-center gap-3'>
@@ -37,12 +44,22 @@ const Snappage = () => {
         
         </div>}
        
-         {myDrops?.map((Drop)=>(
+        {friendsArray?.length === 0 && (
+          <h3 className='mt-30 w-full text-center text-secondary/90'>You have no friends😩</h3>
+        )}
+        {myDrops
+            ?.filter(drop =>
+             friendsArray?.some(friend => friend._id === drop.sender._id)
+             )
+         .map((Drop) => (
+
+          
 
             <div className='text-secondary w-full h-20
             rounded-4xl mb-2 flex border-2 border-secondary/20 bg-secondary/10 shadow-md
              items-center  justify-between px-2  
              font-bold text-lg' key={Drop.sender._id}>
+
 
                 <div onClick={()=>setActiveDrops(Drop.drops)} className='relative w-10/10 h-full flex items-center gap-2 '>
                  <img src={Drop.sender.ProfilePicture || defaultImage }
