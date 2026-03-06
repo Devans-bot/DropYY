@@ -2,8 +2,6 @@ import React, { useEffect,useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import DropYY from "../Components/logonav";
-import RandomBackground from "../Components/randomimages";
-import EmojiFieldMobile from "../Components/emojis";
 import EmojiWallpaper from "../Components/emojiwallpaper";
 import ScaleDownButton from "../Components/ontapAnimate";
 
@@ -39,7 +37,7 @@ useEffect(() => {
       {/* ================= MOBILE LAYOUT ================= */}
       <div className="md:hidden h-screen w-screen relative flex flex-col items-center justify-end">
         <DropYY />
-        <RandomBackground />
+        <EmojiWallpaper />
 
         <div
           className="absolute mb-6 w-13/14 h-6/10

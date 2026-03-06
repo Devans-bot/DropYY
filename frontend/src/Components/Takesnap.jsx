@@ -4,7 +4,6 @@ import Webcam from "react-webcam";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { MdPerson } from "react-icons/md";
 import { useReactMediaRecorder } from "react-media-recorder";
-import RandomBackground from "./randomimages";
 import { useNavigate } from "react-router-dom";
 import { UseAuthStore } from "../Store/authStore";
 import PhotoSendNavBar from "./photonav";
@@ -93,7 +92,6 @@ const switchCamera = () => {
     <>
       <div className="bg-primary relative left-1/2 -translate-x-1/2 w-full h-full flex flex-col items-center justify-center">
         <div className="absolute inset-0 backdrop-blur-sm bg-primary/10 pointer-events-none" />
-        <RandomBackground />
 
         {!isPreviewing && (
           <div className="relative w-full flex flex-col  items-center justify-start h-9/10 md:h-full aspect-[9/16] overflow-hidden">

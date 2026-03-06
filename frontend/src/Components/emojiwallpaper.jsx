@@ -57,7 +57,7 @@ export default function EmojiWallpaper() {
 
   return (
     <div
-      className="absolute w-full h-full rounded-4xl overflow-hidden"
+      className="absolute w-full h-full  overflow-hidden"
       style={{
         backgroundColor: theme === "dark" ? "#000000" : "#ffffff",
       }}

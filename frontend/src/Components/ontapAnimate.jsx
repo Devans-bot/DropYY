@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const ScaleDownButton = ({
   to,
+  type,
   children,
   className = "",
   delay = 300,
@@ -17,6 +18,7 @@ const ScaleDownButton = ({
 
   return (
     <button
+    type="type"
       onClick={handleClick}
       className={`
         transition-all duration-200

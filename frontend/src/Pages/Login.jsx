@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
-import RandomBackground from '../Components/randomimages'
 import { MdContacts, MdEmail, MdKey, MdKeyboard, MdKeyOff, MdLock, MdPanoramaFishEye, MdPassword, MdPeople, MdRemoveRedEye } from 'react-icons/md'
 import DropYY from '../Components/logonav';
 import { Link, useNavigate } from 'react-router-dom';
@@ -28,17 +27,19 @@ const Login = () => {
 
 
 
-    const handleSubmit=(e)=>{
+    const handleSubmit=async(e)=>{
     e.preventDefault()
-    console.log(formdata)
-    login(formdata)
-    navigate("/Stories")
+     const success = await login(formdata)
+
+  if(success){
+    navigate("/")
+  }
     }
   return (
     <> 
    <div className='h-screen md:hidden relative w-screen flex flex-col items-center justify-end'>
     <DropYY/>
-   <RandomBackground/>
+   <EmojiWallpaper/>
 
 
        <form
@@ -52,7 +53,7 @@ const Login = () => {
                <div className='w-full h-full relative'>
                <MdEmail className='absolute  top-1/2 -translate-y-1/2 text-secondary left-5 z-10 '/>
                 <input 
-                className=' placeholder:text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
+                className='text-secondary placeholder:text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
                 placeholder='email@gmail.com'
                 type="text" 
                 value={formdata.email} 
@@ -62,7 +63,7 @@ const Login = () => {
                <div className='w-full h-full relative'>
                <MdLock className='absolute text-secondary  top-1/2 -translate-y-1/2  left-5 z-10 '/>
                 <input 
-                className='placeholder:text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
+                className='text-secondary placeholder:text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
                 placeholder='Password'
                 type={showpassword?"password":"text"}
                 value={formdata.password} 
@@ -75,18 +76,27 @@ const Login = () => {
                 </button>
                 </div>
 
-                 <ScaleDownButton className='w-3/10 p-3 bg-primary/90
-                   border-2 font-bold border-black/50
-                    text-secondary text-lg rounded-3xl'>
+                 <button
+                  type="submit"
+                 className='w-3/10 p-3 bg-primary/90
+                   border-2 font-bold border-secondary/10
+                    text-secondary text-lg rounded-3xl
+                    hover:scale-95
+                    hover:brightness-75'
+                 >
                    SUBMIT
-                 </ScaleDownButton>
+                 </button>
                 </div>
                 
-                <div className='flex  items-center justify-center gap-2  '>
+                <div className='flex text-secondary items-center justify-center gap-2  '>
                   <h3>Don't have a account? </h3>
-                  <ScaleDownButton to="/Signup" className='bg-primary/90 px-2 rounded-3xl 
-                   border-2 font-bold border-black/50
-                  '><h3> Sign Up</h3></ScaleDownButton>
+                  <Link to="/Signup" className='bg-primary/90 px-2 rounded-3xl 
+                   border-2 font-bold border-secondary/10
+                    hover:scale-95
+                    hover:brightness-75
+                    text-secondary
+                    
+                  '> Sign Up</Link>
                 </div>
 
         </form>
@@ -133,24 +143,27 @@ const Login = () => {
                 </button>
                 </div>
 
-                 <ScaleDownButton className='w-3/10 p-3 bg-primary/90
+                 <button
+                  type="submit"
+                 className='w-3/10 p-3 bg-primary/90
                    border-2 font-bold border-secondary/10
                     text-secondary text-lg rounded-3xl
                     hover:scale-95
-                    hover:brightness-75'>
+                    hover:brightness-75'
+                 >
                    SUBMIT
-                 </ScaleDownButton>
+                 </button>
                 </div>
                 
                 <div className='flex text-secondary items-center justify-center gap-2  '>
                   <h3>Don't have a account? </h3>
-                  <ScaleDownButton to="/Signup" className='bg-primary/90 px-2 rounded-3xl 
+                  <Link to="/Signup" className='bg-primary/90 px-2 rounded-3xl 
                    border-2 font-bold border-secondary/10
                     hover:scale-95
                     hover:brightness-75
                     text-secondary
                     
-                  '><h3> Sign Up</h3></ScaleDownButton>
+                  '> Sign Up</Link>
                 </div>
 
         </form>

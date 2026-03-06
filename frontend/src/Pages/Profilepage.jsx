@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import RandomBackground from '../Components/randomimages'
 import testimage from "../assets/Gemini_Generated_Image_e8qxqbe8qxqbe8qx.png"
 import { UseAuthStore } from '../Store/authStore'
 import Logout from '../Components/logout'
@@ -9,6 +8,7 @@ import { MdOutlineCameraAlt } from "react-icons/md";
 import { compressImage } from '../Components/compressimage'
 import SingleGhostLoader from '../Components/GhostLoader'
 import { LoaderIcon } from 'react-hot-toast'
+import EmojiWallpaper from '../Components/emojiwallpaper'
 
 
 const Profilepage = () => {
@@ -43,9 +43,10 @@ const Profilepage = () => {
     )
   return (
     <>
-     <div className='w-full h-full relative '>
+    <div className='w-full h-full relative '>
+              <EmojiWallpaper/>
+
     <div className=" absolute inset-0 backdrop-blur-xs pointer-events-none" />
-        <RandomBackground/>
 
 
         <div className='w-9/10 h-8/10 rounded-3xl shadow-2xl 
