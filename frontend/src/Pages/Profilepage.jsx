@@ -8,6 +8,7 @@ import defaultImage from "../assets/user.jpg"
 import { MdOutlineCameraAlt } from "react-icons/md";
 import { compressImage } from '../Components/compressimage'
 import SingleGhostLoader from '../Components/GhostLoader'
+import { LoaderIcon } from 'react-hot-toast'
 
 
 const Profilepage = () => {
@@ -76,7 +77,7 @@ const Profilepage = () => {
     {/* Profile Image */}
 
     {
-        uploading ? <SingleGhostLoader/> : <img
+        uploading ? <LoaderIcon aria-setsize={20}/>: <img
       src={authUser?.profileDP}
       className="w-20 h-20 bg-primary rounded-full border-2 border-black object-cover"
       alt=""

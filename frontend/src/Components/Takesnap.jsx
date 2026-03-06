@@ -96,7 +96,7 @@ const switchCamera = () => {
         <RandomBackground />
 
         {!isPreviewing && (
-          <div className="relative w-full md:h-full aspect-[9/16] overflow-hidden">
+          <div className="relative w-full flex flex-col  items-center justify-start h-9/10 md:h-full aspect-[9/16] overflow-hidden">
             <Webcam
               ref={webcamRef}
               mirrored={false}
@@ -104,7 +104,7 @@ const switchCamera = () => {
               screenshotFormat="image/png"
               videoConstraints={{ facingMode,
               }}
-className={`w-full absolute z-10 rounded-3xl h-full object-cover border-3 border-green-300 
+    className={`w-full absolute z-10 rounded-3xl h-full object-cover border-5 border-blue-400
   ${facingMode === "user" ? "scale-x-[-1]" : ""}`}            />   
             {showHint && (
                <div className="absolute w-7/10 h-20 z-30  left-1/2 -translate-x-1/2 bottom-5
@@ -112,13 +112,27 @@ className={`w-full absolute z-10 rounded-3xl h-full object-cover border-3 border
               animate-fadeInOut">
              <h3> Tap to capture 📸 </h3>
              <h3> Double tap to record 🔴</h3>
+
                 </div>
              )}
 
             <div className="h-full rounded-3xl bg-black w-full z-0 absolute text-xl flex justify-center items-center font-bold text-white"  >
             <h1 >Opening 📸</h1>
             </div>
-
+   <div 
+        onClick={()=>navigate("/ProfilePage")}
+        className="flex z-50  w-9 h-9 bg-primary/30 border-2 border-secondary/60 rounded-full items-center justify-center absolute top-5 md:top-5 right-8">
+          <MdPerson size={25} />
+        </div>
+        <div
+  onClick={switchCamera}
+  className="absolute top-5 left-8 md:top-5 z-50 
+  w-9 h-9 flex items-center justify-center 
+  bg-primary/30 border-2 border-secondary/60 
+  rounded-full text-white"
+>
+  🔄
+</div>
           </div>
         )}
 
@@ -133,20 +147,7 @@ className={`w-full absolute z-10 rounded-3xl h-full object-cover border-3 border
         )}
 
         {/* Profile Icon */}
-        <div 
-        onClick={()=>navigate("/ProfilePage")}
-        className="flex z-50  w-9 h-9 bg-primary/30 border-2 border-secondary/60 rounded-full items-center justify-center absolute top-1/8 md:top-5 right-8">
-          <MdPerson size={25} />
-        </div>
-        <div
-  onClick={switchCamera}
-  className="absolute top-1/8 left-8 md:top-5 z-50 
-  w-9 h-9 flex items-center justify-center 
-  bg-primary/30 border-2 border-secondary/60 
-  rounded-full text-white"
->
-  🔄
-</div>
+     
 
         {/* Photo Preview */}
         {photo && !mediaBlobUrl && (
@@ -156,14 +157,14 @@ className={`w-full absolute z-10 rounded-3xl h-full object-cover border-3 border
                 setPhoto(null);
                 clearBlobUrl();
               }}
-              className="absolute top-1/10 left-1/12 md:top-5 md:left-5 z-10 w-10 h-8 rounded-full bg-white/30 flex items-center justify-center border-2 border-secondary/60"
+              className="absolute top-1/10 left-1/12 md:top-5 md:left-5 z-10 w-10 h-8 rounded-full bg-white/30 flex items-center justify-center border-2 border-secondary/60 "
             >
               <IoMdArrowRoundBack size={20} />
             </div>
 
             <img
               src={photo}
-              className="absolute border-2 rounded-3xl border-blue-400 w-full  h-10/12 md:w-full md:h-full object-cover "
+              className="absolute border-2 rounded-3xl border-blue-400 w-full  h-10/12 md:w-full md:h-full object-cover scale-x-[-1] "
             />
           </>
         )}
@@ -185,7 +186,7 @@ className={`w-full absolute z-10 rounded-3xl h-full object-cover border-3 border
               src={mediaBlobUrl}
               autoPlay
               loop
-              className="absolute border-2 rounded-3xl border-red-400 w-full  h-10/12 md:w-full md:h-full object-cover "
+              className="absolute border-2 rounded-3xl border-red-400 w-full  h-10/12 md:w-full md:h-full object-cover scale-x-[-1]"
             />
           </>
         )}

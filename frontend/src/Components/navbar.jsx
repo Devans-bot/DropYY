@@ -48,9 +48,9 @@ const isMessagesActive = location.pathname === "/Snaps";
     <div
       className="absolute bottom-0 left-1/2 -translate-x-1/2 
       w-full md:w-[60%] h-18 md:h-16 z-50
-      bg-black/50 backdrop-blur-xl px-4 gap-3
+      bg-black backdrop-blur-xl px-4 gap-3 
       rounded-full flex items-center justify-around
-      border border-white/10"
+      border-4 border-white/10"
     >
       {/* Left Icon */}
      <button

@@ -52,6 +52,7 @@ const SendDrops = () => {
      
      h-full bg-primary relative py-20 md:py-10 px-3 iflex items-center justify-center'>
        <div className='w-full h-full '>
+        <h3 className='w-full text-center text-secondary text-md font-bold mb-10 '>Select Friends to send ! ☺️</h3>
         {friendsArray.length === 0 && (
           <div className='w-full flex flex-col items-center'>
             <SearchedFriends/>
