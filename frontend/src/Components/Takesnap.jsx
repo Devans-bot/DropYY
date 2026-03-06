@@ -103,8 +103,6 @@ const switchCamera = () => {
               audio={false}
               screenshotFormat="image/png"
               videoConstraints={{ facingMode,
-                 width: { ideal: 1080 },
-                 height: { ideal: 1920 }  
               }}
 className={`w-full absolute z-10 rounded-3xl h-full object-cover border-3 border-green-300 
   ${facingMode === "user" ? "scale-x-[-1]" : ""}`}            />   
