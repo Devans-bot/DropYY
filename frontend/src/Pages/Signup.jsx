@@ -119,7 +119,7 @@ const Login = () => {
                   <div className='w-full h-full relative'>
                <MdPerson className='absolute  top-1/2 -translate-y-1/2 text-secondary left-5 z-10 '/>
                 <input 
-                className=' placeholder:text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
+                className=' placeholder:text-secondary text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
                 placeholder='name'
                 type="text" 
                 value={formdata.name} 
@@ -129,7 +129,7 @@ const Login = () => {
                <div className='w-full h-full relative'>
                <MdEmail className='absolute  top-1/2 -translate-y-1/2 text-secondary left-5 z-10 '/>
                 <input 
-                className=' placeholder:text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
+                className=' placeholder:text-secondary text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
                 placeholder='email@gmail.com'
                 type="text" 
                 value={formdata.email} 
@@ -139,7 +139,7 @@ const Login = () => {
                <div className='w-full h-full relative'>
                <MdLock className='absolute text-secondary  top-1/2 -translate-y-1/2  left-5 z-10 '/>
                 <input 
-                className='placeholder:text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
+                className='placeholder:text-secondary text-secondary relative w-full h-full px-12 text-lg border-2 focus:outline-none border-secondary rounded-3xl'
                 placeholder='Password'
                 type={showpassword?"password":"text"}
                 value={formdata.password} 

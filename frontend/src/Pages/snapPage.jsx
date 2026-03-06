@@ -17,10 +17,10 @@ const Snappage = () => {
    useEffect(()=>{
     allFriends()
   },[addFriend])
-  
+
   useEffect(()=>{
     getMyDrops()
-  },[])
+  },[myDrops])
 
  
 
